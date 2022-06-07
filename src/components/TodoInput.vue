@@ -1,14 +1,13 @@
 <template>
 
-  <div class="inputBox shadow">
+  <div class="inputBox">
       <input 
         type="text"
         placeholder="할일을 적으세요~"
-        :value="newTodo"
-        @input="newTodo = $event.target.value"
-        v-on:keyup.enter="addTodo">
+        v-model="newTodo"
+        v-on:keydown.enter="addTodo">
       <span class="addContainer"
-      v-on:click="addTodo">
+        v-on:click="addTodo">
           <span class="addBtn" >
             +
           </span>
@@ -19,21 +18,19 @@
 <script>
   
     export default {
-        data: function() {
-            return {
-                newTodo: ""
-            }
-        },
-        methods: {
-          addTodo() {
-                if (this.newTodo !== ''){
-                this.$store.dispatch('readTodos') 
-                this.$store.dispatch('createTodo', this.newTodo)
-                this.newTodo = ''
-                this.$store.dispatch('readTodos')
-                }
-            }
-         }
+      data: function() {
+        return {
+          newTodo: ""
+        }
+      },
+      methods: {
+        async addTodo() {
+          if (this.newTodo !== ''){
+            await this.$store.dispatch('createTodo', this.newTodo)
+            this.newTodo = ''
+          }
+        }
+      }
 
     }
 
@@ -41,6 +38,11 @@
 </script>
 
 <style scoped>
+input {
+  width: 70%;
+  height: 20px;
+}
+
 input:focus {
   outline:none;
 }

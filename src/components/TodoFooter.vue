@@ -1,24 +1,14 @@
 <template>
-<button v-on:click="clearAll">모두 지우기</button>
+    <button v-on:click="clearAll">모두 지우기</button>
 </template>
 
 <script>
-import axios from 'axios'
-
     export default {       
         methods: {
             async clearAll(){
-            for (let i = 0; i < this.$store.state.todos.length; i++) {
-                    await axios({
-                url: `https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/${this.$store.state.todos[i].id}`,
-               method: 'DELETE',
-               headers: {
-                   "Content-Type": "application/json",
-                   apikey: "FcKdtJs202204",
-                   username: "KDT2_ChoiHyoKeun"
-               }
-               })
-            }
+                await Promise.all(this.$store.state.todos.map(todo =>  
+                    this.$store.dispatch('deleteTodo', todo.id)
+                )) 
                 this.$store.dispatch('readTodos') 
            }    
         }
