@@ -1,32 +1,29 @@
 <template>
-<div class="inner">
-  <Header/>
-  <TodoInput/>
-  <TodoList/>
-  <TodoFooter/>
-</div>
-
+  <div class="inner">
+    <Header />
+    <TodoInput />
+    <TodoList />
+    <TodoFooter />
+  </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import TodoInput from './components/TodoInput.vue'
-import TodoList from './components/TodoList.vue'
-import TodoFooter from './components/TodoFooter.vue'
-
+import Header from "./components/Header.vue";
+import TodoInput from "./components/TodoInput.vue";
+import TodoList from "./components/TodoList.vue";
+import TodoFooter from "./components/TodoFooter.vue";
 
 export default {
   components: {
     Header,
     TodoInput,
     TodoList,
-    TodoFooter
-}
-}
+    TodoFooter,
+  },
+};
 </script>
 
 <style>
-
 body {
   margin-top: 3rem;
 }
@@ -38,5 +35,4 @@ body {
   right: 0;
   margin: 0 auto;
 }
-
 </style>

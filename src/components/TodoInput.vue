@@ -1,40 +1,33 @@
 <template>
-
   <div class="inputBox">
-      <input 
-        type="text"
-        placeholder="할일을 적으세요~"
-        v-model="newTodo"
-        v-on:keydown.enter="addTodo">
-      <span class="addContainer"
-        v-on:click="addTodo">
-          <span class="addBtn" >
-            +
-          </span>
-      </span>
+    <input
+      type="text"
+      placeholder="할일을 적으세요~"
+      v-model="newTodo"
+      v-on:keydown.enter="addTodo"
+    />
+    <button class="addContainer" v-on:click="addTodo">
+      <button class="addBtn">+</button>
+    </button>
   </div>
 </template>
-    
+
 <script>
-  
-    export default {
-      data: function() {
-        return {
-          newTodo: ""
-        }
-      },
-      methods: {
-        async addTodo() {
-          if (this.newTodo !== ''){
-            await this.$store.dispatch('createTodo', this.newTodo)
-            this.newTodo = ''
-          }
-        }
+export default {
+  data: function () {
+    return {
+      newTodo: "",
+    };
+  },
+  methods: {
+    async addTodo() {
+      if (this.newTodo !== "") {
+        await this.$store.dispatch("createTodo", this.newTodo);
+        this.newTodo = "";
       }
-
-    }
-
-
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -44,14 +37,14 @@ input {
 }
 
 input:focus {
-  outline:none;
+  outline: none;
 }
 .inputBox {
   background: white;
   height: 50px;
   line-height: 50px;
   border-radius: 5px;
-  border: 1px solid #6478FB;
+  border: 1px solid #6478fb;
 }
 
 .inputBox input {
@@ -65,11 +58,10 @@ input {
 
 .addContainer {
   float: right;
-  background: linear-gradient(to right, #6478FB, #8763FB);
+  background: linear-gradient(to right, #6478fb, #8763fb);
   display: block;
   width: 3rem;
   border-radius: 0 5px 5px 0;
-  cursor: pointer;
 }
 
 .addBtn {
