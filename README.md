@@ -1,4 +1,4 @@
-# to-do
+# Vue-todo-list
 
 패스트캠퍼스 부트캠프 vue로 to do list만들기 과제입니다.
 
