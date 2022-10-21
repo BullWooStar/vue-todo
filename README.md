@@ -1,7 +1,5 @@
 # to-do
 
-## netlify 링크 : https://precious-centaur-b2639d.netlify.app/
-
 ## 구현한 기능들
 
 - to-do list 추가. 
